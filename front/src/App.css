@@ -1,0 +1,16 @@
+.App {
+	text-align: center;
+	background-color: #282c34;
+	min-height: 100vh;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+header.menu .search-bar {
+	float: right;
+}
+
+.App-link {
+	color: #d19c2b;
+	display: inline-block;
+	margin: 0.4%;
+}
