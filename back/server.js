@@ -135,6 +135,13 @@ reservationRoutes.route('/update/:id').put((req, res) => {
     res.json({ msg: 'Error updating reservation', err: err })
   })
 })
+/* Remove a reservation */
+/* Change 'paid' status of a reservation  */
+reservationRoutes.route('/remove/:id').delete((req, res) => {
+  Reservation.findOneAndDelete({ _id: req.params.id }).then(reservation => {
+    res.json({ msg: 'Reservation deleted!', object: reservation })
+  })
+})
 
 /* Change 'paid' status of a reservation  */
 reservationRoutes.route('/paidstatus/:id').patch((req, res) => {
