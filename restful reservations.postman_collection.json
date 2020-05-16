@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "5d7e7443-4e64-49da-9063-e64b6846c749",
+		"name": "restful reservations",
+		"description": "Restful Reservations App assignment for Data-modelling course",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List All Reservations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:4000/reservations/list",
+				"description": "List All Reservations from GET request"
+			},
+			"response": []
+		},
+		{
+			"name": "filtered List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/reservations/list?paid=1&reservation_from=02-02-2020&reservation_days=2",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reservations",
+						"list"
+					],
+					"query": [
+						{
+							"key": "paid",
+							"value": "1"
+						},
+						{
+							"key": "reservation_from",
+							"value": "02-02-2020"
+						},
+						{
+							"key": "reservation_days",
+							"value": "2"
+						}
+					]
+				},
+				"description": "GET request for a specific reservation by using FindById. Returns the object for the requested reservation. Return 404 if no reservation is found."
+			},
+			"response": []
+		},
+		{
+			"name": "Make a reservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "reservation_author",
+							"value": "Dude",
+							"type": "text"
+						},
+						{
+							"key": "reservation_from",
+							"value": "02-02-2020",
+							"type": "text"
+						},
+						{
+							"key": "reservation_days",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "reservation_for",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "reservation_notes",
+							"value": "Moi",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:4000/reservations/add",
+				"description": "Making a reservation takin information for req.body through post data. Throws an error if saving results in errors."
+			},
+			"response": []
+		},
+		{
+			"name": "Update a specific reservation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "reservation_author",
+							"value": "Mr. Dude",
+							"type": "text"
+						},
+						{
+							"key": "reservation_from",
+							"value": "04-02-2020",
+							"type": "text"
+						},
+						{
+							"key": "reservation_days",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "reservation_for",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "reservation_note",
+							"value": "Nyt menee kovaa!",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:4000/reservations/update/5ebee3317b5f1c1778e10746",
+				"description": "Select a reservation by ID and update it with information from the POST data using PUT method. Results in 404 if no reservation for the given ID is not found. Throws an error if there was an error upon saving."
+			},
+			"response": []
+		},
+		{
+			"name": "Remove one reservation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:4000/delete/1",
+				"description": "Removes a reservation by ID. Return 404 if no reservation is found. Throws an error if database problems occur."
+			},
+			"response": []
+		},
+		{
+			"name": "Change the \"paid status\" for a reservation",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "paid",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:4000/reservations/paidstatus/5ebee3317b5f1c1778e10746",
+				"description": "Using PATCH method, we can only update one field. That one field is \"paid\" boolean\" value to true or false (1 or 0)\r\nReturns 404 if no reservation for that ID was found. Throws an error if DB error occurs.\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "matti",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "teppo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/reservations/login?",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reservations",
+						"login"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				},
+				"description": "this to retrieve the token that is needed to change the payment status of a reservation"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
