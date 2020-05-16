@@ -156,7 +156,7 @@ reservationRoutes.route("/paidstatus/:id").patch((req, res) => {
 reservationRoutes
 	.route("/login")
 	.post(passport.authenticate("local"), function (req, res, done) {
-		console.log("Authentication done!");
+		res.json({ msg: "Authentication done!" });
 	});
 /* LOGOUT reset session token */
 
