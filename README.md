@@ -32,7 +32,7 @@ after that, run the server with:
 
     node server.js
 
-> **NOTE** All the codebase is in one file, which isn't the most elegant solution but due to the "explorative" nature of this assignment, it
+> **NOTE** Most of the codebase (models - or Data Schemas, are separate) is in one file, which isn't the most elegant solution but due to the "explorative" nature of this assignment, it
 > just happened to gather up in one file. The code base might be further
 > refined in future revision (this back-end will be re-used for another,
 > front-end assignment.
